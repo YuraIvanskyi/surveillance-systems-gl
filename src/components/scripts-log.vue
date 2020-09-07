@@ -9,6 +9,7 @@
       :sort-desc="true"
       sort-by="startTime"
       dense
+      mobile-breakpoint='1080'
       must-sort
       item-key="uid"
       :show-expand="false"
@@ -19,14 +20,12 @@
     >
       <!-- table rows slot redefinitions -->
       <template v-slot:[`item.status`]="{ item }">
-        <v-chip :color="getStatusChipColor(item.status)"
-            small dark
-        >
-          <v-icon v-if="item.status === 'Passed'" left small>mdi-progress-check</v-icon>
-          <v-icon v-else-if="item.status === 'Failed'" left small>mdi-progress-close</v-icon>
-          <v-icon v-else left small>mdi-progress-wrench</v-icon>
-          <span>{{ item.status }}</span>
-        </v-chip>
+          <v-chip :color="getStatusChipColor(item.status)" small dark>
+            <v-icon v-if="item.status === 'Passed'" left small>mdi-progress-check</v-icon>
+            <v-icon v-else-if="item.status === 'Failed'" left small>mdi-progress-close</v-icon>
+            <v-icon v-else left small>mdi-progress-wrench</v-icon>
+            <span>{{ item.status }}</span>
+          </v-chip>
       </template>
 
       <template v-slot:[`item.endTime`]="{ item }">
@@ -39,20 +38,7 @@
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">
-          <v-layout class="my-1 pa-0" justify-center align-center>
-            <v-btn :disabled="item.status === 'Running'"
-              class="me-1 my-0" color="primary" text x-small>
-              <v-icon left>mdi-script-text-outline</v-icon>Logs
-            </v-btn>
-            <v-btn :disabled="item.status === 'Running'"
-              class="me-1 my-0" color="primary" text x-small>
-              <v-icon left>mdi-cellphone-screenshot</v-icon>Screenshots
-            </v-btn>
-            <v-btn :disabled="item.status === 'Running'"
-              class="me-1 my-0" color="primary" text x-small>
-              <v-icon left>mdi-file-chart</v-icon>Reports
-            </v-btn>
-          </v-layout>
+          <scripts-log-dialog :script="item"/>
       </template>
 
       <!-- table top bar slot redefinition -->
@@ -82,7 +68,12 @@
   </v-card>
 </template>
 <script>
+import ScriptsLogDialog from './scripts-log-dialog.vue';
+
 export default {
+  components: {
+    ScriptsLogDialog,
+  },
   data() {
     return {
       headers: [
