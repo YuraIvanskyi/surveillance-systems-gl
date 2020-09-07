@@ -1,9 +1,10 @@
 import Vue from 'vue';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/storage';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
-import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC2sHv5z8zp4lqwt-PJtwfOfYVxYNUbKOg',
@@ -18,7 +19,62 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-Vue.config.productionTip = false;
+export const projects = [];
+export const scripts = [];
+export const roles = [];
+
+const database = firebase.database();
+const scriptsDB = database.ref('scripts/');
+const projectsDB = database.ref('projects/');
+// const storageRef = firebase.storage().ref();
+
+scriptsDB.on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  scripts.push(data);
+});
+scriptsDB.on('child_changed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < scripts.length; i += 1) {
+    if (scripts[i].uid === data.uid) {
+      scripts.splice(i, 1);
+      i -= 1;
+    }
+  }
+  scripts.push(data);
+});
+scriptsDB.on('child_removed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < scripts.length; i += 1) {
+    if (scripts[i].uid === data.uid) {
+      scripts.splice(i, 1);
+      i -= 1;
+    }
+  }
+});
+
+projectsDB.on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  projects.push(data);
+});
+projectsDB.on('child_changed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < projects.length; i += 1) {
+    if (projects[i].uid === data.uid) {
+      projects.splice(i, 1);
+      i -= 1;
+    }
+  }
+  projects.push(data);
+});
+projectsDB.on('child_removed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < projects.length; i += 1) {
+    if (projects[i].uid === data.uid) {
+      projects.splice(i, 1);
+      i -= 1;
+    }
+  }
+});
 
 new Vue({
   router,
