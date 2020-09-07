@@ -86,20 +86,21 @@
                         >
                         <v-card flat tile class="d-flex">
                             <v-overlay :value="overlay" opacity="0.3">
-                            <v-btn
-                                icon
-                                fixed
-                                right
-                                bottom
-                                large
-                                @click="overlay = false"
-                            >
-                                <v-icon>mdi-close</v-icon>
-                            </v-btn>
-                            <v-img
-                            :src="currentScreenshot"
-                            :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
-                            max-width="1600" max-height="800"/>
+                                <v-layout>
+                                    <v-img
+                                    :src="currentScreenshot"
+                                    :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
+                                    max-width="1600" max-height="800"/>
+                                    <v-btn
+                                        icon
+                                        right
+                                        bottom
+                                        large
+                                        @click="overlay = false"
+                                    >
+                                        <v-icon>mdi-close</v-icon>
+                                    </v-btn>
+                                </v-layout>
                             </v-overlay>
                             <v-img
                                 :src="screenshot"
