@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-row>
+    <v-row class="mx-5">
       <v-col v-for="card in projects" :key="card.uid"
       cols="12" lg="2"
       >

@@ -4,7 +4,7 @@
       width="320"
       height="380"
       elevation=12
-      class="px-0 py-0 mx-6 my-0 lighten-1"
+      class="px-0 py-0 mx-0 my-0 lighten-1"
       :color="project.color"
       v-ripple="{ class: `${
         project.color.includes(' ') ?
