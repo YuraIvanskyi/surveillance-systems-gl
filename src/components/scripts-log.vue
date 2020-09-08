@@ -28,13 +28,13 @@
           </v-chip>
       </template>
 
-      <template v-slot:[`item.endTime`]="{ item }">
-          <span v-if="item.endTime">{{ new Date(item.endTime).toLocaleString('uk-UA') }}</span>
+      <template v-slot:[`item.end`]="{ item }">
+          <span v-if="item.end">{{ new Date(item.end).toLocaleString('uk-UA') }}</span>
           <span v-else>processing...</span>
       </template>
 
-      <template v-slot:[`item.startTime`]="{ item }">
-          <span>{{ new Date(item.startTime).toLocaleString('uk-UA') }}</span>
+      <template v-slot:[`item.start`]="{ item }">
+          <span>{{ new Date(item.start).toLocaleString('uk-UA') }}</span>
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">
@@ -90,10 +90,10 @@ export default {
           text: 'Device', align: 'center', sortable: false, value: 'device',
         },
         {
-          text: 'Initiated', align: 'center', sortable: false, value: 'startTime',
+          text: 'Initiated', align: 'center', sortable: false, value: 'start',
         },
         {
-          text: 'Completed', align: 'center', sortable: false, value: 'endTime',
+          text: 'Completed', align: 'center', sortable: false, value: 'end',
         },
         {
           text: 'Attachments', align: 'center', sortable: false, value: 'actions',

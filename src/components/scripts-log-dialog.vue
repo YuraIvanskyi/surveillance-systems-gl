@@ -79,8 +79,8 @@
                 <v-container fluid>
                     <v-row>
                         <v-col
-                        v-for="screenshot in script.screenshots"
-                        :key="screenshot"
+                        v-for="(screenshot, index) in script.screenshots"
+                        :key="index"
                         class="d-flex child-flex"
                         cols="2"
                         >
