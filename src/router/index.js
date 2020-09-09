@@ -17,14 +17,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/project/:puid',
+    path: '/projects/:tag',
     name: 'Project',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Project.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
   },
   {
-    path: '/project/:puid/:platform/:servicename',
+    path: '/projects/:tag/:platform/:servicename',
     name: 'Service',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Service.vue'),
+    component: () => import(/* webpackChunkName: "service" */ '../views/Service.vue'),
   },
 ];
 
