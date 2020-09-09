@@ -21,10 +21,11 @@ firebase.initializeApp(firebaseConfig);
 
 export const projects = [];
 export const scripts = [];
-export const roles = [];
+export const services = [];
 
 const database = firebase.database();
 const scriptsDB = database.ref('scripts/');
+const servicesDB = database.ref('services/');
 const projectsDB = database.ref('projects/');
 // const storageRef = firebase.storage().ref();
 
@@ -47,6 +48,30 @@ scriptsDB.on('child_removed', (snapshot) => {
   for (let i = 0; i < scripts.length; i += 1) {
     if (scripts[i].uid === data.uid) {
       scripts.splice(i, 1);
+      i -= 1;
+    }
+  }
+});
+
+servicesDB.on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  services.push(data);
+});
+servicesDB.on('child_changed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < services.length; i += 1) {
+    if (services[i].uid === data.uid) {
+      services.splice(i, 1);
+      i -= 1;
+    }
+  }
+  services.push(data);
+});
+servicesDB.on('child_removed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < services.length; i += 1) {
+    if (services[i].uid === data.uid) {
+      services.splice(i, 1);
       i -= 1;
     }
   }

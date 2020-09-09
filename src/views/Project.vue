@@ -5,17 +5,18 @@
     cols="12"
     lg="12"
     >
-    <platform-services :serviceScripts="iosScripts" :platform="'IOS'"/>
-    <platform-services :serviceScripts="androidScripts" :platform="'Android'"/>
-    <platform-services :serviceScripts="winScripts" :platform="'Windows'"/>
+    <platform-services :services="services" :platform="'IOS'"/>
+    <platform-services :services="services" :platform="'Android'"/>
+    <platform-services :services="services" :platform="'Windows'"/>
     </v-col>
+
   </v-row>
 </v-layout>
 </template>
 
 <script>
 import PlatformServices from '../components/platform-services.vue';
-import { scripts } from '../main'; // eslint-disable-line import/no-cycle
+import { services } from '../main'; // eslint-disable-line import/no-cycle
 
 export default {
   name: 'Project',
@@ -24,12 +25,7 @@ export default {
   },
   data() {
     return {
-      iosScripts: scripts.filter((item) => (item.platform === 'IOS'
-      && item.pname === this.$route.params.puid)),
-      androidScripts: scripts.filter((item) => (item.platform === 'Android'
-      && item.pname === this.$route.params.puid)),
-      winScripts: scripts.filter((item) => (item.platform === 'Windows'
-      && item.pname === this.$route.params.puid)),
+      services,
     };
   },
 };
