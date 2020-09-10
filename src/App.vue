@@ -4,23 +4,58 @@
       v-model="drawer"
       app
     >
-      <v-list dense>
-        <v-list-item link to="/projects">
+      <v-list nav dense>
+        <v-list-item class="pa-0">
+          <v-list-item-content>
+            <v-list-item-title class="text-uppercase gray--text text-center">
+              <span >Surveillance</span>
+              <span class="font-weight-light">Systems</span>
+              <v-icon color="grey darken-3">mdi-cctv</v-icon>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider class="ma-1"></v-divider>
+        <v-list-item-group color="teal lighten-2">
+        <v-list-item to="/projects">
           <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
+            <v-icon color="teal lighten-2">mdi-cards</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Projects</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link to="/about">
+
+        <v-list-item to="/calendar">
           <v-list-item-action>
-            <v-icon>mdi-information</v-icon>
+            <v-icon color="teal lighten-2">mdi-calendar-cursor</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
+            <v-list-item-title>Calendar</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-divider class="ma-1"></v-divider>
+
+        <v-list-item to="/help">
+          <v-list-item-action>
+            <v-icon color="teal lighten-2">mdi-help</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Help</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item to="/about">
+          <v-list-item-action>
+            <v-icon color="teal lighten-2">mdi-account-box</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Contacts</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
 
@@ -30,7 +65,11 @@
       dense
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-spacer v-show="drawer"></v-spacer>
+      <v-toolbar-title class="text-uppercase gray--text">
+        <span class="font-weight-thin">Surveillance</span>
+        <span class="font-weight-normal">Systems</span>
+      </v-toolbar-title>
     </v-app-bar>
 
       <v-main>
