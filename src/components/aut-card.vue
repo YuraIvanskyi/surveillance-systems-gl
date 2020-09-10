@@ -10,7 +10,7 @@
         project.color.includes(' ') ?
         project.color.split(' ')[0] :
         project.color}--text`}"
-      @click="logSomething(project)"
+      :to="$route.path + '/' + project.tag"
     >
       <v-container class="py-1" fluid>
         <v-row>
@@ -88,11 +88,7 @@ export default {
       return project.img;
     },
     getTitleClass(project) {
-      console.log(project);
       return project.name.length <= 15 ? 'headline font-weight-medium  grey lighten-3' : 'subtitle-1 font-weight-black grey lighten-3';
-    },
-    logSomething(project) {
-      console.log(project);
     },
   },
   props: ['project'],

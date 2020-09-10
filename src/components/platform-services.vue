@@ -2,7 +2,7 @@
 <v-card outlined class="ma-1 mb-4">
     <v-data-table
       :headers="headers"
-      :items="serviceScripts"
+      :items="filteredServices"
       dense
       mobile-breakpoint='1080'
       item-key="uid"
@@ -29,7 +29,7 @@
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">
-            <v-btn x-small text :to="$route.path + '/' + item.platform + '/' + item.service">
+            <v-btn x-small text :to="$route.path + '/' + item.platform + '/' + item.name">
               <v-icon small class="mr-1">mdi-tray-full</v-icon>
               All Tests &amp; Details
             </v-btn>
@@ -64,13 +64,13 @@ export default {
     return {
       headers: [
         {
-          text: 'Service', align: 'center', sortable: false, value: 'service',
+          text: 'Service', align: 'center', sortable: false, value: 'name',
         },
         {
           text: 'Status', align: 'center', sortable: false, value: 'status',
         },
         {
-          text: 'Last Test', align: 'center', sortable: false, value: 'lastTime',
+          text: 'Last Test', align: 'center', sortable: false, value: 'last',
         },
         {
           text: 'Test Rythm', align: 'center', sortable: false, value: 'rythm',
@@ -96,7 +96,7 @@ export default {
     },
   },
   props: {
-    serviceScripts: {
+    services: {
       type: Array,
       required: true,
     },
@@ -106,9 +106,9 @@ export default {
     },
   },
   computed: {
-    getEachServiceRecord() {
-      const platformScripts = this.serviceScripts;
-      const services = {};
+    filteredServices() {
+      return this.services.filter((item) => (item.platform === this.platform
+      && item.project === this.$route.params.tag));
     },
   },
 };

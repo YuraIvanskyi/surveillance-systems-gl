@@ -5,7 +5,8 @@
     cols="12"
     lg="12"
     >
-    <scripts-log :scripts="scripts"/>
+    <scripts-log :scripts="filteredScripts"/>
+
     </v-col>
   </v-row>
 </v-layout>
@@ -22,10 +23,15 @@ export default {
   },
   data() {
     return {
-      scripts: scripts.filter((item) => (item.platform === this.$route.params.platform
-      && item.service === this.$route.params.servicename
-      && item.pname === this.$route.params.puid)),
+      scripts,
     };
+  },
+  computed: {
+    filteredScripts() {
+      return this.scripts.filter((item) => (item.platform === this.$route.params.platform
+      && item.service === this.$route.params.servicename
+      && item.pname === this.$route.params.tag));
+    },
   },
 };
 </script>
