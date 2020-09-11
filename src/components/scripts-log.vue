@@ -45,7 +45,9 @@
 
       <template v-slot:top>
         <v-toolbar flat dense>
-          <v-toolbar-title>Service {x} tests</v-toolbar-title>
+          <v-toolbar-title>
+            {{ $route.params.platform }} {{ $route.params.servicename }} tests
+          </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
