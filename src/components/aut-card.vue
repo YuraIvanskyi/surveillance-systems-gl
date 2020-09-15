@@ -4,7 +4,7 @@
       width="320"
       height="380"
       elevation=12
-      class="px-0 py-0 mx-0 my-0 lighten-1"
+      class="pa-0 ma-0 lighten-1"
       :color="project.color"
       v-ripple="{ class: `${
         project.color.includes(' ') ?
@@ -31,11 +31,9 @@
             <v-row>
               <span class="font-weight-light">Services on all platforms</span>
               <v-spacer></v-spacer>
-              <v-hover disabled>
                 <v-btn text height=24 class="subtitle-1 no-hover" small>
                   8
                 </v-btn>
-              </v-hover>
             </v-row>
             <v-divider width="275"></v-divider>
             <v-row>

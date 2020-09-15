@@ -29,7 +29,19 @@
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">
+        <v-badge
+          overlap
+          color="error"
+          dot
+          bordered
+          v-if="item.status === 'Failed'"
+        >
             <v-btn x-small text :to="$route.path + '/' + item.platform + '/' + item.name">
+              <v-icon small class="mr-1">mdi-tray-full</v-icon>
+              All Tests &amp; Details
+            </v-btn>
+        </v-badge>
+        <v-btn v-else x-small text :to="$route.path + '/' + item.platform + '/' + item.name">
               <v-icon small class="mr-1">mdi-tray-full</v-icon>
               All Tests &amp; Details
             </v-btn>

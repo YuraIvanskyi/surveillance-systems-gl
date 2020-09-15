@@ -95,9 +95,13 @@
       </v-main>
       <v-footer
         app
+        padless
+        max-height="100"
+        color="primary"
+        elevation="5"
       >
-
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer />
+      <span class="white--text mr-5">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
