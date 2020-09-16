@@ -13,11 +13,9 @@
       :to="$route.path + '/' + project.tag"
     >
       <v-container class="px-0 py-1">
-        <v-layout class="grey lighten-4">
+        <v-layout class="grey lighten-4 font-weight-bold">
           <v-list-item-title
-            :class="getTitleClass(project)"
-            align="center"
-            style="height: 32px;">
+            align="center">
           {{ project.name }}
           </v-list-item-title>
         </v-layout>
@@ -110,9 +108,6 @@ export default {
     };
   },
   methods: {
-    getTitleClass(project) {
-      return project.name.length <= 15 ? 'headline font-weight-medium' : 'subtitle-1 font-weight-bold';
-    },
   },
   props: {
     project: {

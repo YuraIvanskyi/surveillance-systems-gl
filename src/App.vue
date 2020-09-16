@@ -82,7 +82,7 @@
       </v-breadcrumbs>
       <v-spacer></v-spacer>
       <v-toolbar-title class="text-uppercase accent--text">
-        <span class="font-weight-normal">Surveillance</span>
+        <span class="font-weight-medium">Surveillance</span>
         <span class="font-weight-thin">Dashboard</span>
       </v-toolbar-title>
       <v-icon x-large class="ml-1" color="accent">mdi-cctv</v-icon>
@@ -167,5 +167,11 @@ export default {
   opacity: 0;
   -webkit-transform: translate(-30px, 0);
   transform: translate(-30px, 0);
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+.v-application {
+  font-family: 'Krub', sans-serif !important;
 }
 </style>
