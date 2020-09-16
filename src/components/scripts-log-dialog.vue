@@ -88,6 +88,7 @@
                             <v-overlay :value="overlay" opacity="0.3">
                                 <v-layout>
                                     <v-img
+                                    v-click-outside="clickOutsideOverlay"
                                     :src="currentScreenshot"
                                     :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
                                     max-width="1600" max-height="800"/>
@@ -142,6 +143,9 @@ export default {
     currentScreenshot: '',
   }),
   methods: {
+    clickOutsideOverlay() {
+      this.overlay = false;
+    },
     viewScreenshot(selected) {
       this.overlay = true;
       this.currentScreenshot = selected;
