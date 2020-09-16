@@ -32,7 +32,7 @@
             <v-icon color="primary lighten-2">mdi-calendar-cursor</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Calendar</v-list-item-title>
+            <v-list-item-title>Schedule</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -94,10 +94,15 @@
         </transition>
       </v-main>
       <v-footer
-        app
+      fixed
+      app
+        padless
+        max-height="100"
+        color="primary"
+        elevation="5"
       >
-
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer />
+      <span class="white--text mr-5">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>

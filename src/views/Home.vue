@@ -2,7 +2,7 @@
   <v-layout justify-center>
     <v-row class="mx-5">
       <v-col v-for="card in projects" :key="card.uid"
-      cols="12" lg="2"
+      cols="16" lg="3" sm="6" md="4" xs="12" xl="2"
       >
         <AutCards :project="card"/>
       </v-col>

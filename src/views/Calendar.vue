@@ -1,156 +1,51 @@
 <template>
-  <div>
-    <v-sheet
-      tile
-      height="54"
-      color="grey lighten-3"
-      class="d-flex"
+<v-col cols="12">
+  <v-row justify="center" class="mb-2" align="stretch">
+    <v-btn text small color="grey darken-2" @click="$refs.calendar.prev()">
+      <v-icon small>mdi-chevron-left</v-icon>previous
+    </v-btn>
+    <v-btn text small color="grey darken-2" @click="$refs.calendar.next()">
+      next<v-icon small>mdi-chevron-right</v-icon>
+    </v-btn>
+  </v-row>
+    <v-calendar
+      ref="calendar"
+      v-model="value"
+      :weekdays="weekday"
+      :short-weekdays="false"
+      :type="type"
+      :events="events"
+      :event-overlap-mode="mode"
+      :event-overlap-threshold="30"
+      :event-color="getEventColor"
+      @change="getEvents"
     >
-      <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.prev()"
-      >
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-      <v-select
-        v-model="type"
-        :items="types"
-        dense
-        outlined
-        hide-details
-        class="ma-2"
-        label="type"
-      ></v-select>
-      <v-select
-        v-model="mode"
-        :items="modes"
-        dense
-        outlined
-        hide-details
-        label="event-overlap-mode"
-        class="ma-2"
-      ></v-select>
-      <v-select
-        v-model="weekday"
-        :items="weekdays"
-        dense
-        outlined
-        hide-details
-        label="weekdays"
-        class="ma-2"
-      ></v-select>
-      <v-spacer></v-spacer>
-      <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.next()"
-      >
-        <v-icon>mdi-chevron-right</v-icon>
-      </v-btn>
-    </v-sheet>
-    <v-sheet height="600">
-      <v-calendar
-        ref="calendar"
-        v-model="value"
-        :weekdays="weekday"
-        :type="type"
-        :events="events"
-        :event-overlap-mode="mode"
-        :event-overlap-threshold="30"
-        :event-color="getEventColor"
-        @change="getEvents"
-      ></v-calendar>
-    </v-sheet>
-  </div>
-</template>
-
-<template>
-  <div>
-    <v-sheet
-      tile
-      height="54"
-      color="grey lighten-3"
-      class="d-flex"
-    >
-      <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.prev()"
-      >
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-      <v-select
-        v-model="type"
-        :items="types"
-        dense
-        outlined
-        hide-details
-        class="ma-2"
-        label="type"
-      ></v-select>
-      <v-select
-        v-model="mode"
-        :items="modes"
-        dense
-        outlined
-        hide-details
-        label="event-overlap-mode"
-        class="ma-2"
-      ></v-select>
-      <v-select
-        v-model="weekday"
-        :items="weekdays"
-        dense
-        outlined
-        hide-details
-        label="weekdays"
-        class="ma-2"
-      ></v-select>
-      <v-spacer></v-spacer>
-      <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.next()"
-      >
-        <v-icon>mdi-chevron-right</v-icon>
-      </v-btn>
-    </v-sheet>
-    <v-sheet height="600">
-      <v-calendar
-        ref="calendar"
-        v-model="value"
-        :weekdays="weekday"
-        :type="type"
-        :events="events"
-        :event-overlap-mode="mode"
-        :event-overlap-threshold="30"
-        :event-color="getEventColor"
-        @change="getEvents"
-      ></v-calendar>
-    </v-sheet>
-  </div>
+    </v-calendar>
+</v-col>
 </template>
 
 <script>
+import { projects } from '../main';
+
 export default {
   data: () => ({
     type: 'month',
-    types: ['month', 'week', 'day', '4day'],
     mode: 'stack',
-    modes: ['stack', 'column'],
-    weekday: [0, 1, 2, 3, 4, 5, 6],
-    weekdays: [
-      { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
-      { text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0] },
-      { text: 'Mon - Fri', value: [1, 2, 3, 4, 5] },
-      { text: 'Mon, Wed, Fri', value: [1, 3, 5] },
-    ],
+    weekday: [1, 2, 3, 4, 5, 6, 0],
     value: '',
     events: [],
-    colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
     names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
   }),
+  computed: {
+    getProjectColors() {
+      const colors = [];
+      projects.forEach((item) => colors.push(item.color));
+      return colors;
+    },
+  },
+  mounted() {
+    this.$refs.calendar.checkChange();
+  },
   methods: {
     getEvents({ start, end }) {
       const events = [];
@@ -171,7 +66,7 @@ export default {
           name: this.names[this.rnd(0, this.names.length - 1)],
           start: first,
           end: second,
-          color: this.colors[this.rnd(0, this.colors.length - 1)],
+          color: this.getProjectColors[this.rnd(0, this.getProjectColors.length - 1)],
           timed: !allDay,
         });
       }
@@ -187,3 +82,8 @@ export default {
   },
 };
 </script>
+<style>
+.v-calendar-weekly__head-weekday {
+  font-size: 14px !important;
+}
+</style>
