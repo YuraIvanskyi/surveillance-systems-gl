@@ -1,4 +1,13 @@
 <template>
+<v-col cols="12">
+  <v-row justify="center" class="mb-2" align="stretch">
+    <v-btn text small color="grey darken-2" @click="$refs.calendar.prev()">
+      <v-icon small>mdi-chevron-left</v-icon>previous
+    </v-btn>
+    <v-btn text small color="grey darken-2" @click="$refs.calendar.next()">
+      next<v-icon small>mdi-chevron-right</v-icon>
+    </v-btn>
+  </v-row>
     <v-calendar
       ref="calendar"
       v-model="value"
@@ -10,8 +19,9 @@
       :event-overlap-threshold="30"
       :event-color="getEventColor"
       @change="getEvents"
-    ></v-calendar>
-
+    >
+    </v-calendar>
+</v-col>
 </template>
 
 <script>
@@ -32,6 +42,9 @@ export default {
       projects.forEach((item) => colors.push(item.color));
       return colors;
     },
+  },
+  mounted() {
+    this.$refs.calendar.checkChange();
   },
   methods: {
     getEvents({ start, end }) {

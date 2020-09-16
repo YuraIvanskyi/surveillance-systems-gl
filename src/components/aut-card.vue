@@ -1,10 +1,10 @@
 <template>
-  <div>
     <v-card
-      width="320"
-      height="380"
+      max-width="350"
+      min-width="240"
+      min-height="320"
       elevation=12
-      class="pa-0 ma-0 lighten-1"
+      class="pa-0 ma-0"
       :color="project.color"
       v-ripple="{ class: `${
         project.color.includes(' ') ?
@@ -12,68 +12,65 @@
         project.color}--text`}"
       :to="$route.path + '/' + project.tag"
     >
-      <v-container class="py-1" fluid>
-        <v-row>
+      <v-container class="px-0 py-1">
+        <v-layout class="grey lighten-4">
           <v-list-item-title
             :class="getTitleClass(project)"
             align="center"
-            style="height: 32px;"
-          >{{project.name}}</v-list-item-title>
-        </v-row>
+            style="height: 32px;">
+          {{ project.name }}
+          </v-list-item-title>
+        </v-layout>
 
-        <v-row>
-          <v-img :src="getCardImage(project)" height="180"/>
-          <!-- <v-img src="@/assets/a9.jpg" height="180"></v-img> -->
-        </v-row>
+        <v-img :src="project.img" height="160"/>
 
-        <v-row class="grey lighten-4 pl-2">
-          <v-container>
-            <v-row>
-              <span class="font-weight-light">Services on all platforms</span>
-              <v-spacer></v-spacer>
-                <v-btn text height=24 class="subtitle-1 no-hover" small>
-                  8
-                </v-btn>
-            </v-row>
-            <v-divider width="275"></v-divider>
-            <v-row>
-              <span class="font-weight-light">Services tests passed</span>
-              <v-spacer></v-spacer>
-              <v-btn text height=24 class="subtitle-1 no-hover" small>
-                800
-              </v-btn>
-            </v-row>
-            <v-divider width="275"></v-divider>
-            <v-row>
-              <span class="font-weight-light">Services tests failed</span>
-              <v-spacer></v-spacer>
-              <v-btn text height=24 class="subtitle-1 no-hover" small>
-                555
-              </v-btn>
-            </v-row>
-            <v-divider width="275"></v-divider>
-            <v-row>
-              <span class="font-weight-light">Services tests not tested</span>
-              <v-spacer></v-spacer>
-              <v-btn text height=24 class="subtitle-1 no-hover" small >
-                3
-              </v-btn>
-            </v-row>
+        <v-layout class="grey lighten-4">
+          <v-container class="pt-1 pb-0 px-2 font-weight-light">
+            <v-layout justify-end>
+              <span>Services on all platforms</span>
+              <v-spacer/>
+              <span>{{ Math.floor((3133 - 1 + 1) * Math.random()) + 1 }}</span>
+            </v-layout>
+
+            <v-divider/>
+
+            <v-layout>
+              <span>Services tests passed</span>
+              <v-spacer/>
+              <span>{{ Math.floor((333 - 1 + 1) * Math.random()) + 1 }}</span>
+            </v-layout>
+
+            <v-divider/>
+
+            <v-layout>
+              <span>Services tests failed</span>
+              <v-spacer/>
+              <span>{{ Math.floor((9 - 1 + 1) * Math.random()) + 1 }}</span>
+            </v-layout>
+
+            <v-divider/>
+
+            <v-layout>
+              <span>Services tests not tested</span>
+              <v-spacer/>
+              <span>{{ Math.floor((33 - 1 + 1) * Math.random()) + 1 }}</span>
+            </v-layout>
+
+            <v-divider/>
+
+            <v-layout>
+              <span >
+                Last service test:
+              </span>
+              <v-spacer/>
+              <span class="mr-1">5 min ago</span>
+              <v-icon small>mdi-clock-outline</v-icon>
+            </v-layout>
+
           </v-container>
-        </v-row>
-
-        <v-row class="grey lighten-4">
-          <span class=" pl-2 py-1 font-weight-light">
-            Last service test: 5 min ago
-          </span>
-          <v-spacer></v-spacer>
-          <v-btn icon class="mr-2 no-hover">
-            <v-icon>mdi-information-outline</v-icon>
-          </v-btn>
-        </v-row>
+        </v-layout>
       </v-container>
     </v-card>
-  </div>
 </template>
 
 <script>
@@ -82,19 +79,15 @@ export default {
     return {};
   },
   methods: {
-    getCardImage(project) {
-      return project.img;
-    },
     getTitleClass(project) {
-      return project.name.length <= 15 ? 'headline font-weight-medium  grey lighten-3' : 'subtitle-1 font-weight-black grey lighten-3';
+      return project.name.length <= 15 ? 'headline font-weight-medium' : 'subtitle-1 font-weight-bold';
     },
   },
-  props: ['project'],
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
-
-<style scoped>
-  .no-hover:before {
-    color: transparent
-  }
-</style>

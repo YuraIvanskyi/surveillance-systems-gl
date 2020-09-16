@@ -32,7 +32,7 @@
             <v-icon color="primary lighten-2">mdi-calendar-cursor</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Calendar</v-list-item-title>
+            <v-list-item-title>Schedule</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -94,7 +94,8 @@
         </transition>
       </v-main>
       <v-footer
-        app
+      fixed
+      app
         padless
         max-height="100"
         color="primary"
