@@ -98,8 +98,8 @@
                     <v-icon class="mr-5" color="primary">mdi-cellphone-screenshot</v-icon>
                     Screenshots
                 </v-card-title>
-                <v-container fluid v-if="script.screenshot !== undefined">
-                    <v-row>
+                <v-container fluid>
+                    <v-row v-if="script.screenshots !== undefined">
                         <v-col
                         v-for="(screenshot, index) in script.screenshots"
                         :key="index"
@@ -127,7 +127,6 @@
                             </v-overlay>
                             <v-img
                                 :src="screenshot"
-                                :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
                                 aspect-ratio="1"
                                 class="grey lighten-2"
                                 @click="viewScreenshot(screenshot)"
@@ -146,10 +145,10 @@
                         </v-card>
                         </v-col>
                     </v-row>
-                </v-container>
-                <v-card-text class="ml-3" v-else>
+                    <v-card-text v-else>
                     No screenshots attached to this script run.
-                </v-card-text>
+                    </v-card-text>
+                </v-container>
             </v-container>
         </v-card>
     </v-dialog>
