@@ -68,7 +68,6 @@
 
             <v-divider />
             <v-divider />
-            <v-divider />
 
             <v-layout>
               <span >
@@ -90,14 +89,18 @@ export default {
   data() {
     return {
       labels: [
-        '00:00',
-        '06:00',
-        '09:00',
-        '12:00',
-        '18:00',
-        '24:00',
+        '0',
+        '3',
+        '6',
+        '9',
+        '12',
+        '15',
+        '18',
+        '21',
       ],
       value: [
+        Math.floor((33 - 1 + 1) * Math.random()) + 1,
+        Math.floor((33 - 1 + 1) * Math.random()) + 1,
         Math.floor((33 - 1 + 1) * Math.random()) + 1,
         Math.floor((33 - 1 + 1) * Math.random()) + 1,
         Math.floor((33 - 1 + 1) * Math.random()) + 1,
@@ -113,6 +116,10 @@ export default {
     project: {
       type: Object,
       required: true,
+    },
+    projectStats: {
+      type: Object,
+      required: false,
     },
   },
 };
