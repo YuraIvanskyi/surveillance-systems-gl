@@ -1,12 +1,13 @@
 <template>
-<v-layout>
-    <v-row class="mx-5">
-      <v-spacer></v-spacer>
+<v-layout class="px-5">
+    <v-row justify="center">
       <v-col
-      cols="16" lg="6" sm="10" md="8" xs="14" xl="6"
+      cols="12" lg="12" sm="12" md="12" xs="12" xl="8"
        >
         <v-card>
-          <v-tabs fixed-tabs
+          <v-tabs
+          grow
+          v-model="currentTab"
           >
             <v-tab>
               Manual
@@ -16,36 +17,43 @@
             </v-tab>
           </v-tabs>
 
-          <v-tabs-item>
+          <v-tabs-items>
               <v-expansion-panels accordion>
                 <v-expansion-panel
-                  v-for="(item,i) in myItems"
+                  v-for="(item,i) in sortedQuestions"
                   :key="i"
-
                 >
                   <v-expansion-panel-header >
-                    {{ item['title'] }}
+                    {{ item.title }}
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    {{ item['value'] }}
+                    {{ item.value }}
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
-          </v-tabs-item>
+          </v-tabs-items>
         </v-card>
       </v-col>
-      <v-spacer></v-spacer>
     </v-row>
   </v-layout>
 </template>
 
 <script>
 export default {
+  computed: {
+    sortedQuestions() {
+      return this.questions.filter((item) => item.category === this.currentTabNamed);
+    },
+    currentTabNamed() {
+      return this.currentTab === 0 ? 'Manual' : 'Surveillance';
+    },
+  },
   components: {
   },
   data() {
     return {
-      myItems: [
+      currentTab: 'Manual',
+      questions: [
         {
           title: 'What is the difference between Quality Assurance, Quality Control, and Testing?',
           value: 'Quality Assurance is the process of planning and defining the way of monitoring and implementing the quality(test) processes within a team and organization. This method defines and sets the quality standards of the projects. Quality Control is the process of finding defects and providing suggestions to improve the quality of the software. The methods used by Quality Control are usually established by quality assurance. It is the primary responsibility of the testing team to implement quality control. Testing is the process of finding defects/bugs. It validates whether the software built by the development team meets the requirements set by the user and the standards set by the organization. Here, the main focus is on finding bugs and the testing teams work as a quality gatekeeper.',
@@ -98,85 +106,6 @@ export default {
         },
       ],
     };
-  },
-  props: {
-
-    /**
-   * Array of items
-   * Object style {questionProperty: string, answerProperty: string, tabName: string}
-   * You can change object keys names using other props (questionProperty, answerProperty, tabName)
-   */
-    items: {
-      type: Array,
-      required: true,
-    },
-
-    /**
-   * Key name of object in items array for specifying title of question
-   */
-    questionProperty: {
-      type: String,
-      default: 'title',
-    },
-
-    /**
-   * Key name of object in items array for specifying content text of open question
-   */
-    answerProperty: {
-      type: String,
-      default: 'value',
-    },
-
-    /**
-   * Key name of object in items array for specifying navigation tab name
-   */
-    tabName: {
-      type: String,
-      default: 'category',
-    },
-
-    /**
-  * Color for hover and active tab/question
-  * possible format: 'red', '#F00', 'rgba(255, 0, 0, 1)'
-  */
-    activeColor: {
-      type: String,
-      default: '#D50000',
-    },
-
-    /**
-   * Color for borders
-   */
-    borderColor: {
-      type: String,
-      default: '#9E9E9E',
-    },
-
-    /**
-   * Color for fonts
-   */
-    fontColor: {
-      type: String,
-      default: '#000000',
-    },
-
-    /**
-   * Opened by default tabName (category)
-   */
-    initialTab: {
-      type: String,
-      default: null,
-    },
-
-    /**
-   * Opened by default question
-   * All closed by default
-   */
-    initialQuestionIndex: {
-      type: Number,
-      default: null,
-    },
-
   },
 };
 </script>
