@@ -19,13 +19,9 @@
           </v-chip>
       </template>
 
-      <template v-slot:[`item.lastTime`]="{ item }">
-          <span v-if="item.endTime">{{ new Date(item.endTime).toLocaleString('uk-UA') }}</span>
+      <template v-slot:[`item.last`]="{ item }">
+          <span v-if="item.last">{{ new Date(item.last).toLocaleString('uk-UA') }}</span>
           <span v-else>processing...</span>
-      </template>
-
-      <template v-slot:[`item.startTime`]="{ item }">
-          <span>{{ new Date(item.startTime).toLocaleString('uk-UA') }}</span>
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">

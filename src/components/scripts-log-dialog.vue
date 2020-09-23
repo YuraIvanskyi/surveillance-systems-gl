@@ -29,13 +29,17 @@
                     Logs
                 </v-card-title>
                 <v-layout class="ml-5">
-                    <v-container class="ma-0 pa-1">
+                    <v-container class="ma-0 pa-1"
+                    v-if="script.logs !== undefined">
                         <v-sheet v-for="(log, index) in script.logs" :key="log" color="#FBE5E1">
                             <code>
                                 <kbd class="ma-0 px-1 py-0">{{ index+1 }}</kbd> {{ log }}
                             </code>
                         </v-sheet>
                     </v-container>
+                    <v-card-text v-else>
+                        No logs attached to this script run (and this is not ok in any case)!
+                    </v-card-text>
                 </v-layout>
                 <v-divider class="mt-5" />
                 <v-card-title>
@@ -45,31 +49,49 @@
                 <v-container fluid>
                     <v-data-iterator
                         hide-default-footer
+                        v-if="script.reports !== undefined"
                         :items="script.reports">
                         <template v-slot:default="props">
                         <v-row>
                         <v-col
-                            v-for="item in props.items"
-                            :key="item.name"
+                            v-for="(item, index) in props.items"
+                            :key="index"
                             cols="12"
                             sm="12"
                             md="6"
-                            lg="2"
+                            lg="3"
                         >
                             <v-card raised class="pa-0 ma-0"
-                            :img="getReportBackImg(item.name)">
-                            <v-card-title class="py-0 ma-0">
-                                {{ item.name }}
-                            <v-spacer />
-                            <v-btn icon bottom right>
-                                <v-icon>mdi-download</v-icon>
-                            </v-btn>
-                            </v-card-title>
+                            @click="downloadReport(item.path)">
+                                <v-layout align-center>
+                                    <v-icon
+                                    v-if="getReportFormatTag(item.name).includes('xls')"
+                                    color="green">
+                                        mdi-microsoft-excel
+                                    </v-icon>
+                                    <v-icon
+                                    v-else-if="getReportFormatTag(item.name).includes('doc')"
+                                    color="indigo">
+                                        mdi-microsoft-word
+                                    </v-icon>
+                                    <v-icon
+                                    color="yellow"
+                                    v-else>mdi-file-document</v-icon>
+                                    <v-divider vertical class="mx-1"/>
+                                    <span class="subtitle-1 py-0 ma-0">
+                                        {{ item.name }}
+                                    </span>
+                                    <v-spacer />
+                                    <v-icon>mdi-file-download-outline</v-icon>
+                                </v-layout>
                             </v-card>
                         </v-col>
                         </v-row>
                     </template>
                     </v-data-iterator>
+                    <v-card-text v-else>
+                        No reports attached to this script run.
+                    </v-card-text>
                 </v-container>
                 <v-divider class="mt-5" />
                 <v-card-title>
@@ -77,7 +99,7 @@
                     Screenshots
                 </v-card-title>
                 <v-container fluid>
-                    <v-row>
+                    <v-row v-if="script.screenshots !== undefined">
                         <v-col
                         v-for="(screenshot, index) in script.screenshots"
                         :key="index"
@@ -105,7 +127,6 @@
                             </v-overlay>
                             <v-img
                                 :src="screenshot"
-                                :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
                                 aspect-ratio="1"
                                 class="grey lighten-2"
                                 @click="viewScreenshot(screenshot)"
@@ -124,6 +145,9 @@
                         </v-card>
                         </v-col>
                     </v-row>
+                    <v-card-text v-else>
+                    No screenshots attached to this script run.
+                    </v-card-text>
                 </v-container>
             </v-container>
         </v-card>
@@ -143,6 +167,9 @@ export default {
     currentScreenshot: '',
   }),
   methods: {
+    downloadReport(path) {
+      window.open(path);
+    },
     clickOutsideOverlay() {
       this.overlay = false;
     },
@@ -150,16 +177,8 @@ export default {
       this.overlay = true;
       this.currentScreenshot = selected;
     },
-    getReportBackImg(name) {
-      const format = name.split('.')[1];
-      if (format === 'xlsx') {
-        return 'https://www.ryadel.com/wp-content/uploads/2019/03/excel-logo-xls-xlsx-ms-microsoft-348x215.jpg';
-      }
-      if (format === 'doc') {
-        return 'https://assets.cdnpandadoc.com/app/uploads/sites/3/You-can-now-use-an-electronic-signature-in-a-Google-Doc1.png';
-      }
-
-      return 'https://www.ksi-usa.com/files/2020/01/file-2-resized.jpg';
+    getReportFormatTag(name) {
+      return name.split('.')[1];
     },
   },
 };

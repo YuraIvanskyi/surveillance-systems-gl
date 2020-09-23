@@ -39,7 +39,7 @@
             <v-layout justify-end>
               <span>Services on all platforms</span>
               <v-spacer/>
-              <span>{{ Math.floor((100 - 1 + 1) * Math.random()) + 1 }}</span>
+              <span>{{ stats.all }}</span>
             </v-layout>
 
             <v-divider/>
@@ -47,7 +47,7 @@
             <v-layout>
               <span>Services tests passed</span>
               <v-spacer/>
-              <span>{{ Math.floor((50 - 1 + 1) * Math.random()) + 1 }}</span>
+              <span>{{ stats.passed }}</span>
             </v-layout>
 
             <v-divider/>
@@ -55,27 +55,26 @@
             <v-layout>
               <span>Services tests failed</span>
               <v-spacer/>
-              <span>{{ Math.floor((10 - 1 + 1) * Math.random()) + 1 }}</span>
+              <span>{{ stats.failed }}</span>
             </v-layout>
 
             <v-divider/>
 
             <v-layout>
-              <span>Services tests not tested</span>
+              <span>Services under test</span>
               <v-spacer/>
-              <span>{{ Math.floor((90 - 1 + 1) * Math.random()) + 1 }}</span>
+              <span>{{ stats.running }}</span>
             </v-layout>
 
-            <v-divider />
             <v-divider />
             <v-divider />
 
             <v-layout>
               <span >
-                Last service test:
+                Last test:
               </span>
               <v-spacer/>
-              <span class="mr-1">5 min ago</span>
+              <span class="mr-1">{{ stats.last }}</span>
               <v-icon small>mdi-clock-outline</v-icon>
             </v-layout>
 
@@ -90,20 +89,24 @@ export default {
   data() {
     return {
       labels: [
-        '00:00',
-        '06:00',
-        '09:00',
-        '12:00',
-        '18:00',
-        '24:00',
+        '0',
+        '3',
+        '6',
+        '9',
+        '12',
+        '15',
+        '18',
+        '21',
       ],
       value: [
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
-        Math.floor((33 - 1 + 1) * Math.random()) + 1,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
+        Math.floor((100 - 1 + 0) * Math.random()) + 0,
       ],
     };
   },
@@ -113,6 +116,10 @@ export default {
     project: {
       type: Object,
       required: true,
+    },
+    stats: {
+      type: Object,
+      required: false,
     },
   },
 };

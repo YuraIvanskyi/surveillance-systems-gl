@@ -1,9 +1,12 @@
 <template>
 <v-col cols="12">
-  <v-row justify="center" class="mb-2" align="stretch">
+  <v-row justify="center" class="my-1" align="stretch">
     <v-btn text small color="grey darken-2" @click="$refs.calendar.prev()">
       <v-icon small>mdi-chevron-left</v-icon>previous
     </v-btn>
+    <v-spacer/>
+    <v-select dense :items="['day', 'week', 'month']" label="Display Mode" v-model="type"/>
+    <v-spacer/>
     <v-btn text small color="grey darken-2" @click="$refs.calendar.next()">
       next<v-icon small>mdi-chevron-right</v-icon>
     </v-btn>
@@ -29,7 +32,7 @@ import { projects } from '../main';
 
 export default {
   data: () => ({
-    type: 'month',
+    type: 'week',
     mode: 'stack',
     weekday: [1, 2, 3, 4, 5, 6, 0],
     value: '',
