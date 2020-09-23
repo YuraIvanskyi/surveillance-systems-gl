@@ -1,63 +1,62 @@
 <template>
-  <v-container>
-    <v-layout class="pa-3" fluid wrap justify-space-around>
-      <v-card outlined class="mb-2 pa-2" max-width="450">
-        <v-card-text outlined class="text-justify font-weight-light black--text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et repudiandae corrupti, distinctio rem, aperiam tenetur iure quaerat repellendus officia quia obcaecati cupiditate earum fuga praesentium. Ratione unde eius eveniet officiis? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse culpa doloremque, eveniet, accusantium at in fuga quia accusamus ipsa nam laboriosam. Quae perferendis temporibus est tempora! Nostrum veniam culpa modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolores eaque quae nihil in minima reiciendis necessitatibus nostrum delectus incidunt maiores mollitia, possimus officiis ex eius aliquid doloremque ab debitis! <!-- eslint-disable-line max-len -->
-          </v-card-text>
-        <v-layout justify-center>
-          <img width="300" max-width="400" src="https://i.pinimg.com/originals/f6/73/fd/f673fd99dd3e2a7f7e6631a14c9fdfa1.png" />
-        </v-layout>
-      </v-card>
-      <v-card outlined class="mx-2 mb-2" max-width="450">
-        <v-list three-line>
-          <template v-for="(item, index) in items">
-            <v-subheader class="indigo--text display-1" v-if="item.header" :key="item.header"
-              v-text="item.header"></v-subheader>
+    <v-layout justify-center>
+      <v-row class="mx-5">
+        <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="6">
+          <v-card >
+            <v-list three-line>
+              <template v-for="(item, index) in items">
+                <v-subheader color="primary"
+                  class="subtitle-1 text-uppercase font-weight-medium"
+                  v-if="item.header"
+                  :key="item.header"
+                  v-text="item.header"></v-subheader>
 
-            <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
+                <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
 
-            <v-list-item v-else :key="item.title">
-              <v-list-item-avatar size="70">
-                <v-img :src="item.avatar"></v-img>
-              </v-list-item-avatar>
+                <v-list-item v-else :key="item.title">
+                  <v-list-item-avatar size="70">
+                    <v-img :src="item.avatar"></v-img>
+                  </v-list-item-avatar>
 
-              <v-list-item-content>
-                <v-list-item-title v-if="item.maintainer">{{ item.title }}
-                  <v-chip x-small color="indigo" dark>maintainer</v-chip>
-                </v-list-item-title>
-                <v-list-item-title v-else>{{ item.title }}</v-list-item-title>
-                <v-list-item-subtitle>Email: {{ item.email }}</v-list-item-subtitle>
-                <v-list-item-subtitle>Skype: {{ item.skype }}</v-list-item-subtitle>
-                <v-list-item-subtitle>Mattermost: {{ item.mattermost }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
-      <v-card outlined class="mx-2 mb-2" max-width="450">
-        <v-list three-line>
-          <template v-for="(item, index) in general">
-            <v-subheader class="indigo--text display-1" v-if="item.header" :key="item.header"
-              v-text="item.header"></v-subheader>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    <v-list-item-subtitle>Email: {{ item.email }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Skype: {{ item.skype }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Mattermost: {{ item.mattermost }}</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-list>
+          </v-card>
+        </v-col>
+        <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="6">
+            <v-card >
+              <v-list three-line>
+                <template v-for="(item, index) in general">
+                  <v-subheader color="primary"
+                    class="subtitle-1 text-uppercase font-weight-medium"
+                    v-if="item.header"
+                    :key="item.header"
+                    v-text="item.header"></v-subheader>
 
-            <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
+                  <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
 
-            <v-list-item v-else :key="item.title">
-              <v-list-item-avatar size="70">
-                <v-img :src="item.avatar"></v-img>
-              </v-list-item-avatar>
+                  <v-list-item v-else :key="item.title">
+                    <v-list-item-avatar size="70">
+                      <v-img :src="item.avatar"></v-img>
+                    </v-list-item-avatar>
 
-              <v-list-item-content>
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                <v-list-item-subtitle>Email: {{ item.email }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      <v-list-item-subtitle>Email: {{ item.email }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-card>
+        </v-col>
+      </v-row>
     </v-layout>
-  </v-container>
 </template>
 <script>
 export default {
@@ -71,7 +70,6 @@ export default {
         title: 'Yuriy Ivanskyi',
         email: 'yuriy.ivanskyi@gameloft.com',
         skype: 'y.ivanskyi',
-        maintainer: true,
         mattermost: 'yuriy.ivanskyi',
       },
       { divider: true, inset: true },
