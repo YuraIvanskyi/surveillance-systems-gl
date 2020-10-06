@@ -125,6 +125,10 @@ export default {
       this.animationName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
     },
   },
+  mounted() {
+    const root = '/projects';
+    this.$router.push({ path: root });
+  },
   computed: {
     routeItems() {
       const items = [];
