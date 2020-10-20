@@ -6,6 +6,8 @@
       dense
       mobile-breakpoint='1080'
       item-key="uid"
+      sort-by="last"
+      :sort-desc="true"
       hide-default-footer
       no-data-text="No service tests for current platform/project connected."
     >
