@@ -7,7 +7,7 @@
       :expanded.sync="expanded"
       :search="search"
       :sort-desc="true"
-      sort-by="startTime"
+      sort-by="start"
       dense
       mobile-breakpoint='1080'
       must-sort

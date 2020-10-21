@@ -26,13 +26,16 @@
             <v-list-item-title>Projects</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
-        <v-list-item to="/calendar">
+        <!-- temporary link until server established -->
+        <v-list-item href="http://10.63.8.196:8080/admin">
           <v-list-item-action>
-            <v-icon color="primary lighten-2">mdi-calendar-cursor</v-icon>
+            <v-icon color="primary lighten-2">mdi-fan</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Schedule</v-list-item-title>
+            <v-list-item-title>
+              Airflow Auto Schedule
+              <v-icon x-small color="primary lighten-2">mdi-open-in-new</v-icon>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -53,6 +56,17 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Contacts</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider class="ma-1"></v-divider>
+
+        <v-list-item to="/user">
+          <v-list-item-action>
+            <v-icon color="primary lighten-2">mdi-cog</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Preferences</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 

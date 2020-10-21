@@ -112,7 +112,7 @@
                                     <v-img
                                     v-click-outside="clickOutsideOverlay"
                                     :src="currentScreenshot"
-                                    :lazy-src="`https://icon-library.com/images/screenshot-icon/screenshot-icon-0.jpg`"
+                                    contain
                                     max-width="1600" max-height="800"/>
                                     <v-btn
                                         icon

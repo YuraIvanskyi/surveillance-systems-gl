@@ -1,8 +1,8 @@
 <template>
-<v-layout class="px-5">
+<v-layout class="px-2">
     <v-row justify="center">
       <v-col
-      cols="12" lg="12" sm="12" md="12" xs="12" xl="6"
+      cols="12" lg="12" sm="12" md="12" xs="12" xl="10"
        >
         <v-card>
           <v-tabs
@@ -18,7 +18,7 @@
           </v-tabs>
 
           <v-tabs-items>
-              <v-expansion-panels accordion>
+              <v-expansion-panels accordion multiple>
                 <v-expansion-panel
                   v-for="(item,i) in sortedQuestions"
                   :key="i"
