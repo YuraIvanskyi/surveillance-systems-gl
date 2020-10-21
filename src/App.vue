@@ -27,9 +27,9 @@
           </v-list-item-content>
         </v-list-item>
         <!-- temporary link until server established -->
-        <v-list-item href="http://10.63.8.163:8080/admin">
+        <v-list-item href="http://10.63.8.196:8080/admin">
           <v-list-item-action>
-            <v-icon color="primary lighten-2">mdi-clipboard-list-outline</v-icon>
+            <v-icon color="primary lighten-2">mdi-fan</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>

@@ -1,6 +1,6 @@
 <template>
-    <v-layout justify-center>
-      <v-row class="mx-5">
+    <v-layout justify-center class="px-3">
+      <v-row>
         <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="6">
           <v-card >
             <v-list three-line>

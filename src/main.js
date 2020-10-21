@@ -14,11 +14,13 @@ firebase.initializeApp(firebaseConfig);
 export const projects = [];
 export const scripts = [];
 export const services = [];
+export const profiles = [];
 
 const database = firebase.database();
 const scriptsDB = database.ref('scripts/');
 const servicesDB = database.ref('services/');
 const projectsDB = database.ref('projects/');
+const profilesDB = database.ref('profiles/');
 // const storageRef = firebase.storage().ref();
 
 scriptsDB.on('child_added', (snapshot) => {
@@ -88,6 +90,30 @@ projectsDB.on('child_removed', (snapshot) => {
   for (let i = 0; i < projects.length; i += 1) {
     if (projects[i].uid === data.uid) {
       projects.splice(i, 1);
+      i -= 1;
+    }
+  }
+});
+
+profilesDB.on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  profiles.push(data);
+});
+profilesDB.on('child_changed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < profiles.length; i += 1) {
+    if (profiles[i].uid === data.uid) {
+      profiles.splice(i, 1);
+      i -= 1;
+    }
+  }
+  profiles.push(data);
+});
+profilesDB.on('child_removed', (snapshot) => {
+  const data = snapshot.val();
+  for (let i = 0; i < profiles.length; i += 1) {
+    if (profiles[i].uid === data.uid) {
+      profiles.splice(i, 1);
       i -= 1;
     }
   }
