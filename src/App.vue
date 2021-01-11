@@ -7,11 +7,11 @@
       <v-list nav dense>
         <v-list-item two-line>
           <v-list-item-avatar>
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFkP9ixx069AA/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=15zITW2pyKjSCvE6yPcb2LMqx8gyZxPMhL79C1xbUWY">
+            <img src="https://static.thenounproject.com/png/363640-200.png">
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Mykhailo Nikolaichuk</v-list-item-title>
+            <v-list-item-title>Yuriy Ivanskyi</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -111,6 +111,7 @@
       fixed
       app
         padless
+        class="mt-5"
         max-height="100"
         color="primary"
         elevation="5"

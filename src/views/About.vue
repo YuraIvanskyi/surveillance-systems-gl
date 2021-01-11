@@ -76,31 +76,11 @@ export default {
       {
         color: 'light-blue darken-2',
         avatar:
-          'https://image.myanimelist.net/ui/ogNrt6xjoxcgp7z0v_1Zi_ahAnI6tgzvIVv1vi3cnvL23N6vr9jXfTXCDfRHXBjUhtExvjTF07RoP4-ecfacMb8gPk_TPxLYmpMN0BzAf-SaJVW78F1Z-f05fBjSHHgmUKj2uwzG76sWB4-2sepP5Q',
-        title: 'Igor Kurbanov',
-        email: 'igor.kurbanov@gameloft.com',
-        skype: 'frankenstain447',
-        mattermost: 'igor.kurbanov',
-      },
-      { divider: true, inset: true },
-      {
-        color: 'light-blue darken-2',
-        avatar:
           'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ca/caa21d2a4218b1f27a9a12b9d6825bb9052d316e_full.jpg',
         title: 'Serhii Uhalnykov',
         email: 'serhii.uhalnykov@gameloft.com',
         skype: 'serhii.uhalnykov@gameloft.com',
         mattermost: 'serhii.uhalnykov',
-      },
-      { divider: true, inset: true },
-      {
-        color: 'light-blue darken-2',
-        avatar:
-          'https://cdn.myanimelist.net/r/360x360/images/characters/3/203443.jpg?s=7277b0323c7e3f4ec6abd72bc03cd4c9',
-        title: 'Mykhailo Nikolaichuk',
-        email: 'mykhailo.nikolaichuk@gameloft.com',
-        skype: 'live:mykhailo.nikolaichuk',
-        mattermost: 'mykhailo.nikolaichuk',
       },
       { divider: true, inset: true },
       {

@@ -2,7 +2,7 @@
     <v-card
       max-width="340"
       min-width="240"
-      min-height="320"
+      min-height="300"
       elevation="5"
       class="pa-0 ma-0"
       :color="project.color"
@@ -21,7 +21,7 @@
         </v-layout>
         <v-img :src="project.img" height="140"/>
         <v-divider/>
-        <v-sparkline
+        <!-- <v-sparkline
             :labels="labels"
             :value="value"
             color="white"
@@ -31,7 +31,7 @@
             label-size="14"
             auto-line-width
             padding="20"
-          ></v-sparkline>
+          ></v-sparkline> -->
             <v-divider/>
 
         <v-layout class="grey lighten-4">
