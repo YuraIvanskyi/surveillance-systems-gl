@@ -21,52 +21,108 @@
         </v-layout>
         <v-img :src="project.img" height="140"/>
         <v-divider/>
-        <!-- <v-sparkline
-            :labels="labels"
-            :value="value"
-            color="white"
-            auto-draw
-            stroke-linecap="round"
-            smooth="2"
-            label-size="14"
-            auto-line-width
-            padding="20"
-          ></v-sparkline> -->
-            <v-divider/>
+        <v-divider/>
 
         <v-layout class="grey lighten-4">
           <v-container class="pt-1 pb-0 px-2 font-weight-light">
-            <v-layout justify-end>
-              <span>Services on all platforms</span>
-              <v-spacer/>
-              <span>{{ stats.all }}</span>
-            </v-layout>
+            <v-row class="my-0 py-0">
+              <v-col class="my-0 py-0">
+                <v-container class="ma-0 pa-0">
 
-            <v-divider/>
+                  <v-layout justify-center>
+                    <v-icon large :color="project.color">mdi-apple</v-icon>
+                  </v-layout>
 
-            <v-layout>
-              <span>Services tests passed</span>
-              <v-spacer/>
-              <span>{{ stats.passed }}</span>
-            </v-layout>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="green" size="18">
+                      <v-icon dark small>mdi-progress-check</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.passed_ios }}</span>
+                  </v-layout>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="red" size="18">
+                      <v-icon dark small>mdi-progress-close</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.failed_ios }}</span>
+                  </v-layout>
 
-            <v-divider/>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="blue" size="18">
+                      <v-icon dark small>mdi-progress-wrench</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.running_ios }}</span>
+                  </v-layout>
 
-            <v-layout>
-              <span>Services tests failed</span>
-              <v-spacer/>
-              <span>{{ stats.failed }}</span>
-            </v-layout>
+                </v-container>
+              </v-col>
+              <v-divider vertical class="mb-1"/>
+              <v-col class="my-0 py-0">
+                <v-container class="ma-0 pa-0">
+                  <v-layout justify-center>
+                  <v-icon large :color="project.color">mdi-android</v-icon>
+                  </v-layout>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="green" size="18">
+                      <v-icon dark small>mdi-progress-check</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.passed_android }}</span>
+                  </v-layout>
 
-            <v-divider/>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="red" size="18">
+                      <v-icon dark small>mdi-progress-close</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.failed_android }}</span>
+                  </v-layout>
 
-            <v-layout>
-              <span>Services under test</span>
-              <v-spacer/>
-              <span>{{ stats.running }}</span>
-            </v-layout>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="blue" size="18">
+                      <v-icon dark small>mdi-progress-wrench</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.running_android }}</span>
+                  </v-layout>
+                </v-container>
+              </v-col>
+              <v-divider vertical class="mb-1"/>
+              <v-col class="my-0 py-0">
+                <v-container class="ma-0 pa-0">
+                  <v-layout justify-center>
+                  <v-icon large :color="project.color">mdi-microsoft-windows</v-icon>
+                  </v-layout>
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="green" size="18" class="mr-2">
+                      <v-icon dark small>mdi-progress-check</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.passed_win }}</span>
+                  </v-layout>
 
-            <v-divider />
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="red" size="18" class="mr-2">
+                      <v-icon dark small>mdi-progress-close</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.failed_win }}</span>
+                  </v-layout>
+
+                  <v-layout justify-center align-baseline>
+                    <v-avatar color="blue" size="18" class="mr-2">
+                      <v-icon dark small>mdi-progress-wrench</v-icon>
+                    </v-avatar>
+                    <v-spacer/>
+                    <span>{{ stats.running_win }}</span>
+                  </v-layout>
+                </v-container>
+              </v-col>
+            </v-row>
+
+          <v-divider />
             <v-divider />
 
             <v-layout>
@@ -88,26 +144,6 @@
 export default {
   data() {
     return {
-      labels: [
-        '0',
-        '3',
-        '6',
-        '9',
-        '12',
-        '15',
-        '18',
-        '21',
-      ],
-      value: [
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-        Math.floor((100 - 1 + 0) * Math.random()) + 0,
-      ],
     };
   },
   methods: {
