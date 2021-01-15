@@ -25,7 +25,7 @@
 
         <v-layout class="grey lighten-4">
           <v-container class="pt-1 pb-0 px-2 font-weight-light">
-            <v-row class="my-0 py-0">
+            <v-row dense>
               <v-col class="my-0 py-0">
                 <v-container class="ma-0 pa-0">
 
@@ -33,14 +33,14 @@
                     <v-icon large :color="project.color">mdi-apple</v-icon>
                   </v-layout>
 
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="green" size="18">
                       <v-icon dark small>mdi-progress-check</v-icon>
                     </v-avatar>
                     <v-spacer/>
                     <span>{{ stats.passed_ios }}</span>
                   </v-layout>
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="red" size="18">
                       <v-icon dark small>mdi-progress-close</v-icon>
                     </v-avatar>
@@ -58,13 +58,14 @@
 
                 </v-container>
               </v-col>
-              <v-divider vertical class="mb-1"/>
+              <v-divider vertical/>
+              <v-divider vertical/>
               <v-col class="my-0 py-0">
                 <v-container class="ma-0 pa-0">
                   <v-layout justify-center>
                   <v-icon large :color="project.color">mdi-android</v-icon>
                   </v-layout>
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="green" size="18">
                       <v-icon dark small>mdi-progress-check</v-icon>
                     </v-avatar>
@@ -72,7 +73,7 @@
                     <span>{{ stats.passed_android }}</span>
                   </v-layout>
 
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="red" size="18">
                       <v-icon dark small>mdi-progress-close</v-icon>
                     </v-avatar>
@@ -89,13 +90,14 @@
                   </v-layout>
                 </v-container>
               </v-col>
-              <v-divider vertical class="mb-1"/>
+              <v-divider vertical/>
+              <v-divider vertical/>
               <v-col class="my-0 py-0">
                 <v-container class="ma-0 pa-0">
                   <v-layout justify-center>
                   <v-icon large :color="project.color">mdi-microsoft-windows</v-icon>
                   </v-layout>
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="green" size="18" class="mr-2">
                       <v-icon dark small>mdi-progress-check</v-icon>
                     </v-avatar>
@@ -103,7 +105,7 @@
                     <span>{{ stats.passed_win }}</span>
                   </v-layout>
 
-                  <v-layout justify-center align-baseline>
+                  <v-layout justify-center align-baseline class="mb-n1">
                     <v-avatar color="red" size="18" class="mr-2">
                       <v-icon dark small>mdi-progress-close</v-icon>
                     </v-avatar>
