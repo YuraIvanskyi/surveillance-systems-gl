@@ -16,7 +16,7 @@ export const scripts = [];
 export const services = [];
 export const profiles = [];
 
-const database = firebase.database();
+export const database = firebase.database();
 const scriptsDB = database.ref('scripts/');
 const servicesDB = database.ref('services/');
 const projectsDB = database.ref('projects/');
