@@ -33,7 +33,7 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>
-              Airflow Auto Schedule
+              Airflow
               <v-icon x-small color="primary lighten-2">mdi-open-in-new</v-icon>
             </v-list-item-title>
           </v-list-item-content>
@@ -61,12 +61,12 @@
 
         <v-divider class="ma-1"></v-divider>
 
-        <v-list-item to="/user">
+        <v-list-item to="/admin">
           <v-list-item-action>
             <v-icon color="primary lighten-2">mdi-cog</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Preferences</v-list-item-title>
+            <v-list-item-title>Manage</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -96,10 +96,10 @@
       </v-breadcrumbs>
       <v-spacer></v-spacer>
       <v-toolbar-title class="text-uppercase accent--text">
-        <span class="font-weight-medium">Surveillance</span>
+        <span class="font-weight-medium">GameHealth</span>
         <span class="font-weight-thin">Dashboard</span>
       </v-toolbar-title>
-      <v-icon x-large class="ml-1" color="accent">mdi-cctv</v-icon>
+      <v-icon x-large class="ml-1" color="accent">mdi-clipboard-pulse-outline</v-icon>
     </v-app-bar>
 
       <v-main>

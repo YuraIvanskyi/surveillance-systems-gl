@@ -27,9 +27,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Help.vue'),
   },
   {
-    path: '/user',
-    name: 'Preferences',
-    component: () => import(/* webpackChunkName: "about" */ '../views/User.vue'),
+    path: '/admin',
+    name: 'Management Panel',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue'),
   },
   {
     path: '/projects/:tag',
