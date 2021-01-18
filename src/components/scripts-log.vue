@@ -83,9 +83,6 @@ export default {
           text: 'UID', align: 'center', sortable: false, value: 'uid',
         },
         {
-          text: 'Script', align: 'center', sortable: false, value: 'script',
-        },
-        {
           text: 'Status', align: 'center', sortable: false, value: 'status',
         },
         {

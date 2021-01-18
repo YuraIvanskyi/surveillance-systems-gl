@@ -7,10 +7,15 @@
         <aut-cards
         :project="card"
         :stats="{
-          all:getGeneralServicesAmount(card.tag),
-          passed:getPassedServicesAmount(card.tag),
-          failed:getFailedServicesAmount(card.tag),
-          running:getRunningServicesAmount(card.tag),
+          passed_android:getPassedServicesAmount(card.tag, 'Android'),
+          passed_ios:getPassedServicesAmount(card.tag, 'IOS'),
+          passed_win:getPassedServicesAmount(card.tag, 'Windows'),
+          failed_android:getFailedServicesAmount(card.tag, 'Android'),
+          failed_ios:getFailedServicesAmount(card.tag, 'IOS'),
+          failed_win:getFailedServicesAmount(card.tag, 'Windows'),
+          running_android:getRunningServicesAmount(card.tag, 'Android'),
+          running_ios:getRunningServicesAmount(card.tag, 'IOS'),
+          running_win:getRunningServicesAmount(card.tag, 'Windows'),
           last:getLastServiceTest(card.tag),
         }"
         />
@@ -38,20 +43,17 @@ export default {
     };
   },
   methods: {
-    getGeneralServicesAmount(project) {
-      return this.services.filter((item) => item.project === project).length;
-    },
-    getPassedServicesAmount(project) {
+    getPassedServicesAmount(project, platform) {
       return this.services.filter((item) => item.project === project
-      && item.status === 'Passed').length;
+      && item.status === 'Passed' && item.platform === platform).length;
     },
-    getFailedServicesAmount(project) {
+    getFailedServicesAmount(project, platform) {
       return this.services.filter((item) => item.project === project
-      && item.status === 'Failed').length;
+      && item.status === 'Failed' && item.platform === platform).length;
     },
-    getRunningServicesAmount(project) {
+    getRunningServicesAmount(project, platform) {
       return this.services.filter((item) => item.project === project
-      && item.status === 'Running').length;
+      && item.status === 'Running' && item.platform === platform).length;
     },
     getLastServiceTest(project) {
       const all = this.services.filter((item) => item.project === project);
