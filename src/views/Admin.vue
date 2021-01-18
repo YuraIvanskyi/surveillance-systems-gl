@@ -1,10 +1,10 @@
 <template>
   <v-layout justify-center class="ma-0 pa-2">
-    <v-row>
-      <v-col cols="12" lg="6" sm="6" md="12" xs="12" xl="4" class="ma-0 py-0">
+    <v-row class="px-3">
+      <v-col cols="12" lg="6" sm="6" md="12" xs="12" xl="6" class="ma-0 pa-0 pe-3">
         <projects-admin-card/>
       </v-col>
-      <v-col cols="12" lg="6" sm="6" md="12" xs="12" xl="4" class="ma-0 py-0">
+      <v-col cols="12" lg="6" sm="6" md="12" xs="12" xl="6" class="ma-0 pa-0">
         <services-admin-card/>
       </v-col>
     </v-row>

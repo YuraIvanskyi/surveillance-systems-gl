@@ -15,8 +15,8 @@
 
                     <div class="flex-grow-1"></div>
                     <v-dialog v-model="dialog" max-width="700px">
-                        <template v-slot:activator="{ on: createItem }">
-                            <v-btn color="primary" text class="mb-2" v-on="createItem">
+                        <template v-slot:activator="{ on }">
+                            <v-btn color="primary" text class="mb-2" v-on="on">
                                 <v-icon class="mx-2" color="primary">mdi-plus</v-icon>
                                 Add new project
                             </v-btn>
@@ -83,18 +83,12 @@ export default {
       this.editedIndex = this.projects.indexOf(item);
       this.editedItem = { ...item };
       this.dialog = true;
-      this.isNew = false;
-    },
-    createItem() {
-      this.dialog = true;
-      this.isNew = true;
     },
     deleteItem(item) {
       deleteProject(item.uid);
     },
     close() {
       this.dialog = false;
-      this.isNew = false;
       setTimeout(() => {
         this.editedItem = {
           ...this.defaultItem,
@@ -104,7 +98,7 @@ export default {
     },
     save() {
       const edited = this.editedItem;
-      if (this.isNew) {
+      if (this.editedIndex === -1) {
         createProject(edited);
       } else {
         editProject(edited);
@@ -126,7 +120,6 @@ export default {
   },
   data: () => ({
     dialog: false,
-    isNew: false,
     projects,
     headers: [
       {
