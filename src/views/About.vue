@@ -1,6 +1,102 @@
 <template>
     <v-layout justify-center class="px-3">
       <v-row>
+        <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="6" class="ma-0 pe-3">
+          <v-card outlined class="ma-0">
+            <v-card-title>Dashboard Info</v-card-title>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-1-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Dashboard data is independent from scripts/Airflow. Nothing will be lost!
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-2-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Newly added projects appear empty unless services added for specific platforms.
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-3-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Each project's card shows amount of services tested on all platforms.
+                  These services appear as Passed (green), Failed (red) and Running (blue).
+                  Newly added services without active runs/previous runs do not count.
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-4-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Opening Project->Service will navigate to script runs for selected
+                  service for last 2 days.
+                  Each script run contains logs, screenshots and reports in case of need.
+                </span>
+              </v-layout>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="6" class="ma-0 pe-3">
+          <v-card outlined class="ma-0">
+            <v-card-title>Airflow Usefull Info</v-card-title>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-1-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Setup in Airflow is done via host Linux machine in LVI.
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-2-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Device 'farm' is a set of IOS &amp; Android devices connected locally to MAC/Win.
+                  To get more info regarding devices, please contact the team.
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-3-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Service tests - DAGs - are auto-filled from Gitlab repository to host machine.
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-4-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Users can trigger needed DAG manually on Airflow console.
+                  Be aware of current device schedules!
+                </span>
+              </v-layout>
+            </v-card-text>
+            <v-divider/>
+            <v-card-text>
+              <v-layout align-center>
+                <v-icon class="mr-4">mdi-numeric-5-circle-outline</v-icon>
+                <span class="mr-4 text-md-body-1 custom-font font-weight-medium">
+                  Airflow gathers logs from all parts of the system.
+                  In case of issues, they might provide valuable input for further troubleshooting.
+                </span>
+              </v-layout>
+            </v-card-text>
+          </v-card>
+        </v-col>
         <v-col cols="12" lg="6" sm="12" md="6" xs="12" xl="4" class="pe-3">
           <v-card outlined>
             <v-list three-line>
@@ -122,14 +218,14 @@ export default {
       },
     ],
     items_help: [
-      { header: 'Working from shadows' },
+      { header: 'Impact from shadows' },
       {
         color: 'light-blue darken-2',
         avatar:
           'https://media-exp1.licdn.com/dms/image/C560BAQEVENb2zOhN4w/company-logo_200_200/0/1607357991470?e=2159024400&v=beta&t=djUA-LiChOby0oNTJ5KwCmAt6h8depUyam5TLNo-QYE',
         title: 'Bodgan Racovita',
         email: 'bodgan.racovita@gameloft.com',
-        skype: 'skype',
+        skype: '-',
         mattermost: 'bodgan.racovita',
       },
       { divider: true, inset: true },
@@ -139,7 +235,7 @@ export default {
           'https://media-exp1.licdn.com/dms/image/C560BAQEVENb2zOhN4w/company-logo_200_200/0/1607357991470?e=2159024400&v=beta&t=djUA-LiChOby0oNTJ5KwCmAt6h8depUyam5TLNo-QYE',
         title: 'Vlad Panait',
         email: 'vlad.panait@gameloft.com',
-        skype: 'skype',
+        skype: '-',
         mattermost: 'vlad.panait',
       },
     ],
@@ -172,3 +268,8 @@ export default {
   }),
 };
 </script>
+<style scoped>
+.custom-font {
+  font-family: 'Krub', sans-serif !important;
+}
+</style>
