@@ -22,11 +22,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
   },
   {
-    path: '/help',
-    name: 'Help',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Help.vue'),
-  },
-  {
     path: '/admin',
     name: 'Management Panel',
     component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue'),

@@ -20,16 +20,6 @@ export default {
     ServicesAdminCard,
   },
   data: () => ({
-    ptemplate: {
-      name: 'Test Project',
-      tag: 'test',
-    },
-    stemplate: {
-      name: 'Service 1',
-      project: 'test',
-      platform: 'Windows',
-      rythm: '30m',
-    },
   }),
 };
 </script>

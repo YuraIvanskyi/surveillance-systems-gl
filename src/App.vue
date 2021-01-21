@@ -11,7 +11,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Yuriy Ivanskyi</v-list-item-title>
+            <v-list-item-title>Default User</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -24,10 +24,25 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Projects</v-list-item-title>
+            <v-list-item-subtitle>
+              Games card view
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item to="/about">
+          <v-list-item-action>
+            <v-icon color="primary lighten-2">mdi-information-variant</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Help &amp; Contacts</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider class="ma-1"></v-divider>
+
         <!-- temporary link until server established -->
-        <v-list-item href="http://10.63.8.196:8080/admin">
+        <v-list-item href="http://10.63.8.196:8080/">
           <v-list-item-action>
             <v-icon color="primary lighten-2">mdi-fan</v-icon>
           </v-list-item-action>
@@ -36,30 +51,11 @@
               Airflow
               <v-icon x-small color="primary lighten-2">mdi-open-in-new</v-icon>
             </v-list-item-title>
+            <v-list-item-subtitle>
+              Local setup on Linux host
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-
-        <v-divider class="ma-1"></v-divider>
-
-        <v-list-item to="/help">
-          <v-list-item-action>
-            <v-icon color="primary lighten-2">mdi-help</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Help</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item to="/about">
-          <v-list-item-action>
-            <v-icon color="primary lighten-2">mdi-account-box</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Contacts</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider class="ma-1"></v-divider>
 
         <v-list-item to="/admin">
           <v-list-item-action>
@@ -67,6 +63,9 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Manage</v-list-item-title>
+            <v-list-item-subtitle>
+              Admin board
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
@@ -142,7 +141,9 @@ export default {
   },
   mounted() {
     const root = '/projects';
-    this.$router.push({ path: root });
+    if (this.$router.currentRoute.fullPath !== root) {
+      this.$router.push({ path: root });
+    }
   },
   computed: {
     routeItems() {
