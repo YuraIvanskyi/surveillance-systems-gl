@@ -11,7 +11,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Yuriy Ivanskyi</v-list-item-title>
+            <v-list-item-title>Default User</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
